@@ -19,9 +19,16 @@ const RadialUI = (props) => {
 
       var innerCenterGrp = svg
         .append("g")
-        .attr("class", "inner__center__group")
+        .attr("class", "inner__center__group")        
         .on("click", function () {
-          setIsRadial({ isRadial: "close" });
+          if (d.data.callback) {
+            setIsRadial({ isRadial: "close" });
+            return props.toggleModal(d.data.callback);
+          } else {
+            return router.push(d.data.url, d.data.urlAs);
+          }
+          
+          //setIsRadial({ isRadial: "close" });
         });
 
       innerCenterGrp
@@ -53,7 +60,7 @@ const RadialUI = (props) => {
         .attr("x", 0)
         .attr("y", (d, i) => {
           return i * 15 + 40;
-        });
+        });      
     };
     var size = 300;
     var width = size,
