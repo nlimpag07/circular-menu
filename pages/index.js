@@ -49,11 +49,11 @@ const IndexPage = () => {
       modalTitle: "",
     });
   };
-  
+
   return (
     <div>
       <h3>Hello Circular UI</h3>
-      
+      <p>Please click the menu located in the bottom-right of the screen.</p>
       <Modal
         title={actionModal.modalTitle}
         centered
